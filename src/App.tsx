@@ -7,6 +7,124 @@ import './App.css'
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger)
 
+// Add technology stack data with SVG icons
+const technologies = [
+  { 
+    name: 'React', 
+    icon: (
+      <svg viewBox="0 0 128 128" className="w-6 h-6">
+        <path fill="#61DAFB" d="M64.4 16a49 49 0 0 0-17.1 95.4A49 49 0 0 0 81.5 16a49 49 0 0 0-17.1 0zm0 5.2a44 44 0 0 1 15.4 84.4A44 44 0 0 1 48.9 16a44 44 0 0 1 15.5 0z"/>
+        <path fill="#61DAFB" d="M92.8 50.8a34 34 0 0 0-48.5 0c-.2.2-.5.4-.7.6l10 10 .2-.2a24 24 0 0 1 34.2 0l.2.2 10-10c-.2-.2-.5-.4-.7-.6z"/>
+        <path fill="#61DAFB" d="M64.4 76.3a13 13 0 1 0 0-25.9 13 13 0 0 0 0 25.9z"/>
+      </svg>
+    ),
+    color: '#61DAFB'
+  },
+  { 
+    name: 'TypeScript', 
+    icon: (
+      <svg viewBox="0 0 128 128" className="w-6 h-6">
+        <path fill="#3178C6" d="M2 63.91v62.5h125v-125H2zm100.73-5a15.56 15.56 0 0 1 7.82 4.5 20.58 20.58 0 0 1 3 4c0 .16-5.4 3.81-8.69 5.85-.12.08-.6-.44-1.13-1.23a7.09 7.09 0 0 0-5.87-3.83c-3.79-.26-6.23 1.73-6.21 5a4.58 4.58 0 0 0 .54 2.34c.83 1.73 2.38 2.76 7.24 4.86 8.95 3.85 12.78 6.39 15.16 10 2.66 4 3.25 10.46 1.45 15.24-2 5.2-6.9 8.73-13.83 9.9a38.32 38.32 0 0 1-9.52-.1 23 23 0 0 1-12.72-6.63c-1.15-1.27-3.39-4.58-3.25-4.82a9.34 9.34 0 0 1 1.15-.73L82 101l3.59-2.08.75 1.11a16.78 16.78 0 0 0 4.74 4.54c4 2.1 9.46 1.81 12.16-.62a5.43 5.43 0 0 0 .69-6.92c-1-1.39-3-2.56-8.59-5-6.45-2.78-9.23-4.5-11.77-7.24a16.48 16.48 0 0 1-3.43-6.25 25 25 0 0 1-.22-8c1.33-6.23 6-10.58 12.82-11.87a31.66 31.66 0 0 1 9.49.26zm-29.34 5.24v5.12H56.66v46.23H45.15V69.26H28.88v-5a49.19 49.19 0 0 1 .12-5.17C29.08 59 39 59 43 59h21.83z"/>
+      </svg>
+    ),
+    color: '#3178C6'
+  },
+  { 
+    name: 'Node.js', 
+    icon: (
+      <svg viewBox="0 0 128 128" className="w-6 h-6">
+        <path fill="#83CD29" d="M112.5 50.4l-3.1-1.7c-3.3-1.9-7.3-3.1-11.5-3.1-8.4 0-15.2 3.4-15.2 7.6 0 3.5 3.7 5.4 9.4 7.3l3.3 1.4c10.8 4.6 18.1 9.3 18.1 19.1 0 11.5-9.8 19.8-24.5 19.8-10.6 0-18.9-3.4-24.5-9.3l5.2-6.1c4.6 4.1 10.1 6.8 17.1 6.8 8.4 0 14.5-3.4 14.5-8.6 0-4.1-3.1-6.3-9.8-8.4l-3.3-1.4c-8.4-3.6-14-7.3-14-15.6 0-9.8 8.4-17.1 21.8-17.1 9.3 0 16.3 2.7 21.3 7.1l-4.9 6.1zm-63.1-24.5c-3.3 0-6.1 2.9-6.1 6.5v38.4c0 3.6 2.8 6.5 6.1 6.5h6.1V25.9h-6.1zm-12.2 0v62.2c0 3.6 2.8 6.5 6.1 6.5h32.5c3.3 0 6.1-2.9 6.1-6.5V25.9c0-3.6-2.8-6.5-6.1-6.5H43.3c-3.3 0-6.1 2.9-6.1 6.5z"/>
+      </svg>
+    ),
+    color: '#339933'
+  },
+  { 
+    name: 'Next.js', 
+    icon: (
+      <svg viewBox="0 0 128 128" className="w-6 h-6">
+        <path fill="#000000" d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 8c30.9 0 56 25.1 56 56s-25.1 56-56 56S8 94.9 8 64 33.1 8 64 8zm-4.1 8.1c-1.1 0-2.1.4-2.9 1.2L32.1 45.9c-.8.8-1.2 1.8-1.2 2.9s.4 2.1 1.2 2.9l24.9 28.6c.8.8 1.8 1.2 2.9 1.2s2.1-.4 2.9-1.2l24.9-28.6c.8-.8 1.2-1.8 1.2-2.9s-.4-2.1-1.2-2.9L66.9 17.3c-.8-.8-1.8-1.2-2.9-1.2zm0 4.2l22.9 26.3-22.9 26.3-22.9-26.3 22.9-26.3z"/>
+      </svg>
+    ),
+    color: '#000000'
+  },
+  { 
+    name: 'Tailwind', 
+    icon: (
+      <svg viewBox="0 0 128 128" className="w-6 h-6">
+        <path fill="#38B2AC" d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0"/>
+      </svg>
+    ),
+    color: '#38B2AC'
+  },
+  { 
+    name: 'GraphQL', 
+    icon: (
+      <svg viewBox="0 0 128 128" className="w-6 h-6">
+        <path fill="#E10098" d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 8c30.9 0 56 25.1 56 56s-25.1 56-56 56S8 94.9 8 64 33.1 8 64 8zm-4.1 8.1c-1.1 0-2.1.4-2.9 1.2L32.1 45.9c-.8.8-1.2 1.8-1.2 2.9s.4 2.1 1.2 2.9l24.9 28.6c.8.8 1.8 1.2 2.9 1.2s2.1-.4 2.9-1.2l24.9-28.6c.8-.8 1.2-1.8 1.2-2.9s-.4-2.1-1.2-2.9L66.9 17.3c-.8-.8-1.8-1.2-2.9-1.2zm0 4.2l22.9 26.3-22.9 26.3-22.9-26.3 22.9-26.3z"/>
+      </svg>
+    ),
+    color: '#E10098'
+  },
+  { 
+    name: 'AWS', 
+    icon: (
+      <svg viewBox="0 0 128 128" className="w-6 h-6">
+        <path fill="#FF9900" d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 8c30.9 0 56 25.1 56 56s-25.1 56-56 56S8 94.9 8 64 33.1 8 64 8zm-4.1 8.1c-1.1 0-2.1.4-2.9 1.2L32.1 45.9c-.8.8-1.2 1.8-1.2 2.9s.4 2.1 1.2 2.9l24.9 28.6c.8.8 1.8 1.2 2.9 1.2s2.1-.4 2.9-1.2l24.9-28.6c.8-.8 1.2-1.8 1.2-2.9s-.4-2.1-1.2-2.9L66.9 17.3c-.8-.8-1.8-1.2-2.9-1.2zm0 4.2l22.9 26.3-22.9 26.3-22.9-26.3 22.9-26.3z"/>
+      </svg>
+    ),
+    color: '#FF9900'
+  },
+  { 
+    name: 'Docker', 
+    icon: (
+      <svg viewBox="0 0 128 128" className="w-6 h-6">
+        <path fill="#2496ED" d="M106.1 57.2c0-2.2-1.8-4-4-4H96.5c-2.2 0-4 1.8-4 4v5.7c0 2.2 1.8 4 4 4h5.6c2.2 0 4-1.8 4-4v-5.7zm-11.4 0c0-2.2-1.8-4-4-4h-5.6c-2.2 0-4 1.8-4 4v5.7c0 2.2 1.8 4 4 4h5.6c2.2 0 4-1.8 4-4v-5.7zm-11.3 0c0-2.2-1.8-4-4-4h-5.6c-2.2 0-4 1.8-4 4v5.7c0 2.2 1.8 4 4 4h5.6c2.2 0 4-1.8 4-4v-5.7zm-11.4 0c0-2.2-1.8-4-4-4h-5.6c-2.2 0-4 1.8-4 4v5.7c0 2.2 1.8 4 4 4h5.6c2.2 0 4-1.8 4-4v-5.7zm-11.3 0c0-2.2-1.8-4-4-4h-5.6c-2.2 0-4 1.8-4 4v5.7c0 2.2 1.8 4 4 4h5.6c2.2 0 4-1.8 4-4v-5.7z"/>
+      </svg>
+    ),
+    color: '#2496ED'
+  },
+  { 
+    name: 'Git', 
+    icon: (
+      <svg viewBox="0 0 128 128" className="w-6 h-6">
+        <path fill="#F05032" d="M124.7 58.4L69.6 3.3c-3.2-3.2-8.4-3.2-11.6 0L46.3 15c-4.2 4.2-4.2 11 0 15.2l11.6 11.6c-14.4 3.6-24.8 16.6-24.8 31.6 0 18.3 14.9 33.2 33.2 33.2 15 0 28-10.4 31.6-24.8l11.6 11.6c4.2 4.2 11 4.2 15.2 0l11.6-11.6c3.2-3.2 3.2-8.4 0-11.6zM51.3 86.4c-9.2 0-16.6-7.4-16.6-16.6s7.4-16.6 16.6-16.6 16.6 7.4 16.6 16.6-7.4 16.6-16.6 16.6z"/>
+      </svg>
+    ),
+    color: '#F05032'
+  },
+  { 
+    name: 'Figma', 
+    icon: (
+      <svg viewBox="0 0 128 128" className="w-6 h-6">
+        <path fill="#F24E1E" d="M45.5 129c11.9 0 21.5-9.6 21.5-21.5V86H45.5C33.6 86 24 95.6 24 107.5S33.6 129 45.5 129zm0 0"/>
+        <path fill="#A259FF" d="M24 64.5C24 52.6 33.6 43 45.5 43H67v43H45.5C33.6 86 24 76.4 24 64.5zm0 0"/>
+        <path fill="#0ACF83" d="M24 21.5C24 9.6 33.6 0 45.5 0H67v43H45.5C33.6 43 24 33.4 24 21.5zm0 0"/>
+        <path fill="#FF7262" d="M67 0h21.5C100.4 0 110 9.6 110 21.5S100.4 43 88.5 43H67V0zm0 0"/>
+        <path fill="#1ABCFE" d="M110 64.5c0 11.9-9.6 21.5-21.5 21.5S67 76.4 67 64.5 76.6 43 88.5 43 110 52.6 110 64.5zm0 0"/>
+      </svg>
+    ),
+    color: '#F24E1E'
+  },
+  { 
+    name: 'Laravel', 
+    icon: (
+      <svg viewBox="0 0 128 128" className="w-6 h-6">
+        <path fill="#FF2D20" d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 8c30.9 0 56 25.1 56 56s-25.1 56-56 56S8 94.9 8 64 33.1 8 64 8zm-4.1 8.1c-1.1 0-2.1.4-2.9 1.2L32.1 45.9c-.8.8-1.2 1.8-1.2 2.9s.4 2.1 1.2 2.9l24.9 28.6c.8.8 1.8 1.2 2.9 1.2s2.1-.4 2.9-1.2l24.9-28.6c.8-.8 1.2-1.8 1.2-2.9s-.4-2.1-1.2-2.9L66.9 17.3c-.8-.8-1.8-1.2-2.9-1.2zm0 4.2l22.9 26.3-22.9 26.3-22.9-26.3 22.9-26.3z"/>
+      </svg>
+    ),
+    color: '#FF2D20'
+  },
+  { 
+    name: 'JSF', 
+    icon: (
+      <svg viewBox="0 0 128 128" className="w-6 h-6">
+        <path fill="#1B73BA" d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 8c30.9 0 56 25.1 56 56s-25.1 56-56 56S8 94.9 8 64 33.1 8 64 8zm-4.1 8.1c-1.1 0-2.1.4-2.9 1.2L32.1 45.9c-.8.8-1.2 1.8-1.2 2.9s.4 2.1 1.2 2.9l24.9 28.6c.8.8 1.8 1.2 2.9 1.2s2.1-.4 2.9-1.2l24.9-28.6c.8-.8 1.2-1.8 1.2-2.9s-.4-2.1-1.2-2.9L66.9 17.3c-.8-.8-1.8-1.2-2.9-1.2zm0 4.2l22.9 26.3-22.9 26.3-22.9-26.3 22.9-26.3z"/>
+      </svg>
+    ),
+    color: '#1B73BA'
+  }
+]
+
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,25 +136,25 @@ function App() {
   
   const projects = [
     {
-      title: "Project Name 1",
+      title: "AIRSTATE LAPS",
       description: "A brief description of the project and what it does. Highlight the key features and technologies used.",
-      image: "/project1.jpg",
+      image: "/src/assets/airstatepic.png",
       github: "https://github.com/yourusername/project1",
       live: "https://project1-demo.com",
-      technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB']
+      technologies: ['React', 'TypeScript', 'Firebase']
     },
     {
-      title: "Project Name 2",
+      title: "Medic App",
       description: "A brief description of the project and what it does. Highlight the key features and technologies used.",
-      image: "/project2.jpg",
+      image: "/src/assets/medicpic.png",
       github: "https://github.com/yourusername/project2",
       live: "https://project2-demo.com",
       technologies: ['Next.js', 'Tailwind CSS', 'GraphQL', 'PostgreSQL']
     },
     {
-      title: "Project Name 3",
+      title: "Edu Stripe",
       description: "An interactive web application with real-time data visualization and collaborative features.",
-      image: "/project3.jpg",
+      image: "/src/assets/react.svg",
       github: "https://github.com/yourusername/project3",
       live: "https://project3-demo.com",
       technologies: ['Vue.js', 'Firebase', 'D3.js', 'WebSockets']
@@ -44,7 +162,7 @@ function App() {
     {
       title: "Project Name 4",
       description: "A mobile-first progressive web app with offline capabilities and seamless synchronization.",
-      image: "/project4.jpg",
+      image: "/src/assets/react.svg",
       github: "https://github.com/yourusername/project4",
       live: "https://project4-demo.com",
       technologies: ['React Native', 'Redux', 'Express', 'AWS']
@@ -54,23 +172,18 @@ function App() {
   // Timeline experiences
   const experiences = [
     {
-      company: "Tech Company X",
-      position: "Senior Frontend Developer",
-      period: "2022 - Present",
-      description: "Led the development of a major SaaS platform, improved performance by 40%, and mentored junior developers."
+      company: "Wigal",
+      position: " Frontend Developer",
+      period: "2024 June - 2024 August",
+      description: "Led the development of a major SaaS platform, improved performance by 40%, and integrated api gateway."
     },
     {
-      company: "Startup Y",
-      position: "Full Stack Engineer",
-      period: "2020 - 2022",
-      description: "Built and maintained multiple customer-facing applications, implemented CI/CD pipelines, and optimized database queries."
+      company: "Kamak Paperless",
+      position: "Full Stack Developer",
+      period: "Augest 2024 - Present",
+      description: "Built and maintained multiple customer-facing applications and optimized database queries."
     },
-    {
-      company: "Agency Z",
-      position: "Web Developer",
-      period: "2018 - 2020",
-      description: "Developed responsive websites for various clients, collaborated with designers, and implemented SEO best practices."
-    }
+
   ]
 
   // Testimonials
@@ -401,7 +514,7 @@ function App() {
             <div className="md:col-span-2 about-content">
               <div className={`space-y-4 ${isDarkMode ? 'text-[#8892b0]' : 'text-gray-600'}`}>
                 <p>
-                  Hello! My name is Kojo and I enjoy creating things that live on the internet. My interest in web development started back in 2012 when I decided to try editing custom Tumblr themes — turns out hacking together a custom reblog button taught me a lot about HTML & CSS!
+                  Hello! My name is Kojo and I enjoy creating things that live on the internet. My interest in web development started back in 2021 when i ws intruiged by the idea of creating my something typing random letters and numbers.
                 </p>
                 <p>
                   Fast-forward to today, and I've had the privilege of working at various companies, startups, and organizations. My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.
@@ -411,17 +524,46 @@ function App() {
                 </p>
                 <p>Here are a few technologies I've been working with recently:</p>
                 
-                <div className="grid grid-cols-2 gap-2 mt-4">
-                  {['JavaScript (ES6+)', 'TypeScript', 'React', 'Node.js', 'Next.js', 'Tailwind CSS', 'GraphQL', 'AWS', 'Docker', 'Figma'].map((tech) => (
-                    <motion.li 
-                      key={tech} 
-                      className="flex items-center"
-                      whileHover={{ x: 5 }}
-                      transition={{ duration: 0.2 }}
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-6">
+                  {technologies.map((tech, index) => (
+                    <motion.div
+                      key={tech.name}
+                      className={`flex items-center p-3 rounded-lg ${
+                        isDarkMode ? 'bg-[#112240] hover:bg-[#1d2d4f]' : 'bg-white hover:bg-gray-50'
+                      } shadow-lg hover:shadow-xl transition-all duration-300`}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ 
+                        duration: 0.5, 
+                        delay: index * 0.1,
+                        type: "spring",
+                        stiffness: 100
+                      }}
+                      whileHover={{ 
+                        scale: 1.05,
+                        transition: { duration: 0.2 }
+                      }}
                     >
-                      <span className={`mr-2 ${isDarkMode ? 'text-[#64ffda]' : 'text-blue-600'}`}>▹</span>
-                      {tech}
-                    </motion.li>
+                      <motion.div
+                        className="mr-3"
+                        animate={{ 
+                          rotate: [0, 10, -10, 0],
+                          transition: { 
+                            duration: 2,
+                            repeat: Infinity,
+                            repeatType: "reverse"
+                          }
+                        }}
+                      >
+                        {tech.icon}
+                      </motion.div>
+                      <span 
+                        className={`font-mono text-sm font-medium`}
+                        style={{ color: tech.color }}
+                      >
+                        {tech.name}
+                      </span>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -686,7 +828,7 @@ function App() {
             <div className={`p-6 rounded-lg skill-card transform transition-all duration-300 hover:-translate-y-2 ${isDarkMode ? 'bg-[#112240] hover:shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)]' : 'bg-white shadow-lg hover:shadow-xl'}`}>
               <div className="mb-6">
                 <svg className={`w-12 h-12 ${isDarkMode ? 'text-[#64ffda]' : 'text-blue-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
                 </svg>
               </div>
               <h3 className={`text-xl font-bold mb-4 ${isDarkMode ? 'text-[#ccd6f6]' : 'text-gray-900'}`}>Tools & Others</h3>
@@ -813,7 +955,7 @@ function App() {
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3
-                 6V5z" />
+               6V5z" />
               </svg>
               <span>+123 456 7890</span>
             </a>
@@ -911,11 +1053,11 @@ function App() {
                 </svg>
               ) : social.icon === "twitter" ? (
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482c-3.315.223-6.256-2.201-8.132-5.247A4.825 4.825 0 00.6 4.59c0 .32.026.64.075.96a14.908 14.908 0 01-3.668 3.84c-.44.32-.64.84-.59 1.26.045.42.36.84.54 1.26.09c12.06-3.66 25.56 18.06 25.56 36.48z"/>
                 </svg>
               ) : (
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                  <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.256-1.805-.421-2.225-.224-.562-.479-.96-.899-1.38-.419-.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
                 </svg>
               )}
             </motion.a>
