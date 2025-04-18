@@ -108,8 +108,8 @@ export const HyperText: React.FC<HyperTextProps> = ({
           letter === " "
             ? letter
             : index <= iterationCount.current
-              ? React.Children.toArray(children)[index]
-              : characterSet[getRandomInt(characterSet.length)],
+              ? String(React.Children.toArray(children)[index])
+              : characterSet[getRandomInt(characterSet.length)]
         ),
       );
 

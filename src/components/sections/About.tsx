@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+
 import { MorphingText } from "../magicui/morphing-text"
 
 interface AboutProps {

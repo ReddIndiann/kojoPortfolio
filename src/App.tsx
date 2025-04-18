@@ -57,7 +57,7 @@ function App() {
             { icon: "linkedin", url: "https://linkedin.com/in/yourusername" },
             { icon: "twitter", url: "https://twitter.com/yourusername" },
             { icon: "instagram", url: "https://instagram.com/yourusername" }
-          ].map((social, index) => (
+          ].map((social, _) => (
             <a 
               key={social.icon}
               href={social.url}

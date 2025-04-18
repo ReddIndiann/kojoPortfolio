@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+
 
 interface Project {
   title: string;
@@ -85,7 +85,7 @@ const Projects = ({ isDarkMode }: ProjectsProps) => {
             className="overflow-x-scroll hide-scrollbar flex snap-x snap-mandatory"
             style={{ scrollSnapType: 'x mandatory' }}
           >
-            {projects.map((project, index) => (
+            {projects.map((project, _) => (
               <div 
                 key={project.title}
                 className={`w-full flex-none snap-center px-3 md:w-1/2 lg:w-1/2 ${

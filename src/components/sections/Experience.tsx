@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 
 interface Experience {
   company: string;
@@ -45,7 +44,7 @@ const Experience = ({ isDarkMode }: ExperienceProps) => {
           <div className={`absolute left-0 md:left-1/4 w-1 h-full transform -translate-x-1/2 ${isDarkMode ? 'bg-[#1d2d4f]' : 'bg-gray-200'}`}></div>
           
           <div className="space-y-16">
-            {experiences.map((experience, index) => (
+            {experiences.map((experience, _) => (
               <div key={experience.company} className="experience-item relative pl-8 md:pl-0 md:grid md:grid-cols-4 gap-8">
                 {/* Timeline dot */}
                 <div className={`absolute left-0 md:left-1/4 w-5 h-5 rounded-full transform -translate-x-1/2 border-2 ${
