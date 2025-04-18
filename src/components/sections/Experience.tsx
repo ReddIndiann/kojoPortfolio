@@ -16,7 +16,7 @@ const Experience = ({ isDarkMode }: ExperienceProps) => {
       company: "Wigal",
       position: " Frontend Developer",
       period: "2024 June - 2024 August",
-      description: "Led the development of a major SaaS platform, improved performance by 40%, and integrated api gateway."
+      description: "Worked as a frontend intern building responsive web and mobile applications.Collaborated on integrating an API gateway for smoother data flow and user experience."
     },
     {
       company: "Kamak Paperless",
@@ -77,7 +77,7 @@ const Experience = ({ isDarkMode }: ExperienceProps) => {
           {/* Resume Button */}
           <div className="mt-16 text-center">
             <a 
-              href="/resume.pdf" 
+              href="/src/assets/Resume Daniel Odoi.pdf" 
               target="_blank"
               rel="noopener noreferrer"
               className={`inline-flex items-center px-6 py-3 transition-all duration-300 ${

@@ -1,5 +1,8 @@
 import { useRef, useState } from 'react'
-
+import airstatepic from '../../assets/airstatepic.png'
+import medicpic from '../../assets/medicpic.png'
+import eduStrip from '../../assets/eduStrip.png'
+import gridgaurd from '../../assets/gridgaurd.jpg'
 
 interface Project {
   title: string;
@@ -22,7 +25,7 @@ const Projects = ({ isDarkMode }: ProjectsProps) => {
     {
       title: "AIRSTATE LAPS",
       description: "A web application that allows users to issue or request for land and property details, where they cant find the exact location or looking for paperworks and documents associated with the property.",
-      image: "/src/assets/airstatepic.png",
+      image: airstatepic,
       github: "https://github.com/yourusername/project1",
       live: "https://airstatelaps.com",
       technologies: ['React', 'TypeScript', 'Firebase']
@@ -30,7 +33,7 @@ const Projects = ({ isDarkMode }: ProjectsProps) => {
     {
       title: "Medic App",
       description: "A web application engine that allows users to book doctors have a text and video chat with them",
-      image: "/src/assets/medicpic.png",
+      image: medicpic,
       github: "https://github.com/yourusername/project2",
       live: "https://medicare-eight-sandy.vercel.app",
       technologies: ['React', 'Tailwind CSS', 'GraphQL', 'Firebase', 'Node.js']
@@ -38,7 +41,7 @@ const Projects = ({ isDarkMode }: ProjectsProps) => {
     {
       title: "Edu Stripe",
       description: "An interactive web application for school management that streamlines communication and collaboration between students, teachers, parents, and administrators.",
-      image: "/src/assets/eduStrip.png",
+      image: eduStrip,
       github: "https://github.com/yourusername/project3",
       live: "https://project3-demo.com",
       technologies: ['React', 'Go Lang', 'Tailwind CSS', 'MongoDB', 'AWS']
@@ -46,7 +49,7 @@ const Projects = ({ isDarkMode }: ProjectsProps) => {
     {
       title: "Grid Guard",
       description: "A real time mobile application synced to a an electricity detection IOT device capable of notifying users of power status where ever they are",
-      image: "/src/assets/gridgaurd.jpg",
+      image: gridgaurd,
       github: "https://github.com/yourusername/project4",
       live: "https://project4-demo.com",
       technologies: ['React Native', 'Redux', 'Express', 'AWS']
