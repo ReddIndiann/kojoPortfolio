@@ -22,8 +22,14 @@ const Experience = ({ isDarkMode }: ExperienceProps) => {
     {
       company: "Kamak Paperless",
       position: "Full Stack Developer",
-      period: "Augest 2024 - Present",
-      description: "Built and maintained multiple customer-facing applications and optimized database queries."
+      period: "August 2024 - Present",
+      description: "Built and maintained multiple customer-facing applications and optimized database queries using JSF."
+    },
+    {
+      company: "iOTA Digital lab",
+      position: "Full Stack Developer",
+      period: "Febuary 2025 - Present",
+      description: "Built mobile and webapps for clients mostly using react and React Native."
     },
   ]
 
