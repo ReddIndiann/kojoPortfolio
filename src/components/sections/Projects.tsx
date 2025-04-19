@@ -62,7 +62,7 @@ const Projects = ({ isDarkMode }: ProjectsProps) => {
       image: careerBx,
       github: "https://github.com/yourusername/project4",
       live: "https://project4-demo.com",
-      technologies: ['React','firbase']
+      technologies: ['React','firebase']
     }
   ]
 
