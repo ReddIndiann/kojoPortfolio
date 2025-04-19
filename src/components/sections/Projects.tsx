@@ -3,6 +3,8 @@ import airstatepic from '../../assets/airstatepic.png'
 import medicpic from '../../assets/medicpic.png'
 import eduStrip from '../../assets/eduStrip.png'
 import gridgaurd from '../../assets/gridgaurd.jpg'
+import careerBx from '../../assets/careerbx.png'
+
 
 interface Project {
   title: string;
@@ -53,6 +55,14 @@ const Projects = ({ isDarkMode }: ProjectsProps) => {
       github: "https://github.com/yourusername/project4",
       live: "https://project4-demo.com",
       technologies: ['React Native', 'Redux', 'Express', 'AWS']
+    },
+    {
+      title: "Career Box Starp up",
+      description:"Career Box serves as a one-stop solution for students at various stages of their academic journey, from high school graduates exploring undergraduate options to professionals seeking master's or PhD programs. The platform's user-friendly design and comprehensive database help students make informed decisions about their educational future.",
+      image: careerBx,
+      github: "https://github.com/yourusername/project4",
+      live: "https://project4-demo.com",
+      technologies: ['React','firbase']
     }
   ]
 

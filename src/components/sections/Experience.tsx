@@ -1,4 +1,3 @@
-
 interface Experience {
   company: string;
   position: string;
@@ -76,20 +75,17 @@ const Experience = ({ isDarkMode }: ExperienceProps) => {
           
           {/* Resume Button */}
           <div className="mt-16 text-center">
-            <a 
-              href="/src/assets/Resume Daniel Odoi.pdf" 
+            <a
+              href="/assets/Resume Daniel Odoi.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center px-6 py-3 transition-all duration-300 ${
-                isDarkMode ? 
-                'bg-[#64ffda]/10 text-[#64ffda] hover:bg-[#64ffda]/20' : 
-                'bg-blue-50 text-blue-600 hover:bg-blue-100'
+              className={`inline-block mt-8 px-6 py-3 rounded-md transition-all duration-300 ${
+                isDarkMode
+                  ? 'bg-[#64ffda]/10 text-[#64ffda] hover:bg-[#64ffda]/20'
+                  : 'bg-blue-50 text-blue-600 hover:bg-blue-100'
               }`}
             >
-              <span>View Full Resume</span>
-              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
+              View Full Resume
             </a>
           </div>
         </div>
