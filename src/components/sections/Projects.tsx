@@ -50,7 +50,7 @@ const Projects = ({ isDarkMode }: ProjectsProps) => {
     },
     {
       title: "Grid Guard",
-      description: "A real time mobile application synced to a an electricity detection IOT device capable of notifying users of power status where ever they are",
+      description: "A real time mobile application synced to  an electricity detection IOT device capable of notifying users of power status where ever they are",
       image: gridgaurd,
       github: "https://github.com/yourusername/project4",
       live: "https://project4-demo.com",
