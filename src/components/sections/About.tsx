@@ -17,7 +17,7 @@ const About = ({ isDarkMode }: AboutProps) => {
           <div className="md:col-span-2 about-content">
             <div className={`space-y-4 ${isDarkMode ? 'text-[#8892b0]' : 'text-gray-600'}`}>
               <p>
-                Hello! My name is Kojo and I enjoy creating things that live on the internet. My interest in web development started back in 2021 when i was intruiged by the idea of creating by something typing random letters and numbers.
+                Hello! My name is Kojo and I enjoy creating things that live on the internet. My interest in web development started back in 2021 when i was intruiged by the idea of creating  something by typing random letters and numbers.
               </p>
               <p>
                 Fast-forward to today, and I've had the privilege of working at various companies, startups, and organizations. My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.
