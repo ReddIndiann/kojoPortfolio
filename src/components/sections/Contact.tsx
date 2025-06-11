@@ -22,7 +22,7 @@ const Contact = ({ isDarkMode }: ContactProps) => {
         
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           <a 
-            href="mailto:danielkojo00@gmail.com" 
+            href="mailto:danielkojo005@gmail.com" 
             className={`flex items-center justify-center space-x-2 p-4 border rounded transition-all ${
               isDarkMode ? 
               'border-[#64ffda] text-[#64ffda] hover:bg-[#64ffda]/10' : 
@@ -32,7 +32,7 @@ const Contact = ({ isDarkMode }: ContactProps) => {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <span>danielkojo00@gmail.com</span>
+            <span>danielkojo005@gmail.com</span>
           </a>
           
           <a 
